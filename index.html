@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="http://www.convertico.com/images/1389686873.05/favicon.ico" rel="icon" type="image/x-icon" />
+		<title>B MI Calculator</title>
+		<style type="text/css">
+			body
+			{
+				margin: 0;
+				padding: 0;
+				font-family: 'segoe ui light',sans-serif;
+				background-color: #e74c3c;
+				text-align: center;
+			}
+			*
+			{
+				color:#ecf0f1;
+				font-family: 'segoe ui light',sans-serif;
+			}
+			::selection
+			{
+				background:transparent;
+				color: #000;
+			}
+			::-webkit-scrollbar
+			{
+				width: 1em;
+			}
+			::-webkit-scrollbar-thumb
+			{
+				background-color:#ecf0f1;
+			}
+			::-webkit-scrollbar-track
+			{
+				background-color:#e74c3c;
+			}
+			button
+			{
+				padding: .5em 0 .5em 0;
+				background-color: #3498db;
+				border:1px #2980b9 solid;
+				font-size: 2em;
+				margin-top: 2em;
+				margin-bottom: 1em;
+				width: 12em;
+			}
+			input
+			{
+				background-color: #ecf0f1;
+				border:1px #bdc3c7 solid;
+				color: #2c3e50;
+				font-size: 2em;
+				margin-top: 2em;
+				height:2em;
+				width: 12em;
+				margin-left: 0%;
+			}
+			#main
+			{
+				margin: 0 0 1em 0;
+				width: 30em;
+				background-color: rgba(236, 240, 241, 0.56);
+				border:1px rgba(236, 240, 241, 0.57) solid;
+				padding: 1em;				
+			}
+			#legend
+			{
+				margin: 2em 0 2em 0;
+				width: 30em;
+				background-color: rgba(53, 152, 220, 0.75);
+				border:1px rgba(53, 152, 220, 0.76) solid;
+				padding: 1em;
+				text-align: left;
+			}
+			#range
+			{
+				display: inline-block;
+				text-align: left;
+				font-size: 2em;
+				margin-right: 3em;
+				margin-left: 1em;
+				color: 
+			}
+			#result
+			{
+				display: inline-block;
+				text-align: right;
+				font-size: 2em;
+				font-family: 'segoe ui',sans-serif;
+			}
+			#under
+			{
+				color: #bdc3c7;
+			}
+			#normal
+			{
+				color: #94A4A5;
+			}
+			#over
+			{
+				color: #46607A;
+			}
+			#obese
+			{
+				color: #2c3e50;
+			}
+			*:focus
+			{
+				outline:none;
+			}
+			#bmi
+			{
+				font-size: 3em;
+				font-weight: 100;
+				margin-top: 1em;
+			}
+			#heading
+			{
+				position: relative;
+				text-align: center;
+				font-size: 4em;
+			}
+		</style>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+		  $('#click').click(function(){
+		    var cm = parseInt($('#cm').val());
+		    var m = cm / 100;
+		    var square = (m * m);
+		    var kg = parseInt($('#kg').val());
+		    var final = (kg / square); 
+		    final = final.toFixed(2); 
+		    if (final == "NaN")
+		    {
+		    	alert('Please enter suitable values');
+		    } 
+		    else
+		    {
+		    $('#bmi').text('Your BMI is ' + final);
+			}
+		  });
+		});
+		</script>
+	</head>
+	<body>
+		<center>
+			<p id="heading">B MI Calculator</p>
+			<div id="main">
+				<input type="text" id="cm" autocomplete="on" placeholder="Height (cm)">
+				<br />
+				<input type="text" id="kg" autocomplete="on" placeholder="Weight (kg)">
+				<br />
+				<button id="click">Calculate</button>
+				<p id="bmi">&nbsp;</p>
+			</div>
+			<div id="legend">
+			<div id="range">
+			< 18.5 <br />
+			18.6 - 24.9 <br />
+			25 - 29.9 <br />
+			> 30
+			</div>
+			<div id="result">
+			<span id="under">Underweight<br /></span>
+			<span id="normal">Normal<br /></span>
+			<span id="over">Overweight<br /></span>
+			<span id="obese">Obese</span>
+			</div>
+			</div>
+		</center>
+	</body>
+</html>
